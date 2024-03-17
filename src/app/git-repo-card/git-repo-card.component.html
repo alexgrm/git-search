@@ -1,0 +1,15 @@
+@if (isLoading) {
+<p-card class="skeleton-card">
+    <p-skeleton height="2rem" styleClass="mb-2"></p-skeleton>
+    <p-skeleton width="50%" styleClass="mb-2"></p-skeleton>
+    <p-skeleton width="75%" styleClass="mb-2"></p-skeleton>
+</p-card>
+
+} @else {
+<a [href]="cardData?.html_url" target="_blank" rel="noopener noreferrer"><p-card [header]="cardData?.name">
+        <p>{{ cardData?.description }}</p>
+        <p>Language: {{ cardData?.language }}</p>
+        <p>License: {{ cardData?.license?.name }}</p>
+        <p>Last Updated: {{ cardData?.updated_at | date }}</p>
+    </p-card></a>
+}

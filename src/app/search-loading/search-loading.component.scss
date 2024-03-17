@@ -1,0 +1,13 @@
+.search-results {
+  display: flex;
+  gap: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+  justify-content: center;
+}
+
+app-git-repo-card {
+  width: 420px;
+}
