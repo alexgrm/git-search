@@ -41,7 +41,7 @@ export class AppComponent {
     private changeDetectorRef: ChangeDetectorRef
   ) {}
 
-  isLoading = true;
+  isLoading = false;
   messages: Message[] = [];
   searchResults?: GitHubRepoSearchResultItem[];
 
