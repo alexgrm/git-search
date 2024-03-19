@@ -9,7 +9,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { GitHubService } from './shared/services/git-hub.service';
 import { tap } from 'rxjs';
 import {
-  GitHubRepoSearchResult,
+  GitHubRepoSearchResponse,
   GitHubRepoSearchResultItem,
 } from './shared/models/github.interface';
 import { MessagesModule } from 'primeng/messages';
@@ -37,7 +37,7 @@ import { SearchLoadingComponent } from './search-loading/search-loading.componen
 })
 export class AppComponent {
   constructor(
-    private gitHubService: GitHubService,
+    protected gitHubService: GitHubService,
     private changeDetectorRef: ChangeDetectorRef
   ) {}
 
@@ -71,8 +71,8 @@ export class AppComponent {
     }
   }
 
-  updateResults(results: GitHubRepoSearchResult) {
-    this.searchResults = results.items;
+  updateResults(gitHubResponse: GitHubRepoSearchResponse) {
+    this.searchResults = gitHubResponse.items;
     this.changeDetectorRef.detectChanges();
   }
 

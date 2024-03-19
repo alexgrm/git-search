@@ -1,6 +1,6 @@
-import { GitHubRepoSearchResult } from '../models/github.interface';
+import { GitHubRepoSearchResponse } from '../models/github.interface';
 
-export const data: GitHubRepoSearchResult = {
+export const mockSearchResult: GitHubRepoSearchResponse = {
   total_count: 40,
   incomplete_results: false,
   items: [

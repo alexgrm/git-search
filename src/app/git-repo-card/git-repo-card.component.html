@@ -7,9 +7,9 @@
 
 } @else {
 <a [href]="cardData?.html_url" target="_blank" rel="noopener noreferrer"><p-card [header]="cardData?.name">
-        <p>{{ cardData?.description }}</p>
-        <p>Language: {{ cardData?.language }}</p>
-        <p>License: {{ cardData?.license?.name }}</p>
-        <p>Last Updated: {{ cardData?.updated_at | date }}</p>
+        <p class="description">{{ cardData?.description }}</p>
+        <p class="language">Language: {{ cardData?.language }}</p>
+        <p class="license">License: {{ cardData?.license?.name }}</p>
+        <p class="updated">Last Updated: {{ cardData?.updated_at | date }}</p>
     </p-card></a>
 }

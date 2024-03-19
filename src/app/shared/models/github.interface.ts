@@ -142,7 +142,7 @@ export interface GitHubRepoSearchResultItem {
   web_commit_signoff_required?: boolean;
 }
 
-export interface GitHubRepoSearchResult {
+export interface GitHubRepoSearchResponse {
   total_count: number;
   incomplete_results: boolean;
   items: GitHubRepoSearchResultItem[];

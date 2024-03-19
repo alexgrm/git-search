@@ -1,22 +1,26 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Spectator, createComponentFactory } from '@ngneat/spectator';
 
 import { SearchLoadingComponent } from './search-loading.component';
 
-describe('SearchResultsComponent', () => {
-  let component: SearchLoadingComponent;
-  let fixture: ComponentFixture<SearchLoadingComponent>;
+describe('SearchLoadingComponent', () => {
+  let spectator: Spectator<SearchLoadingComponent>;
+  const createComponent = createComponentFactory(SearchLoadingComponent);
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [SearchLoadingComponent],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(SearchLoadingComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  beforeEach(() => (spectator = createComponent()));
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(spectator.component).toBeTruthy();
+  });
+
+  it('should have three placeholder Git Repo Cards', () => {
+    expect(spectator.queryAll('app-git-repo-card').length).toEqual(3);
+  });
+
+  it('should have all placeholder Git Repo Cards in a loading state', () => {
+    let cards = spectator.queryAll('app-git-repo-card');
+
+    for (const card of cards) {
+      expect(card.getAttribute('ng-reflect-is-loading')).toEqual('true');
+    }
   });
 });
